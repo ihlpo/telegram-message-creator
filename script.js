@@ -20,6 +20,8 @@ const chart = document.getElementById('chart').value;
 const stop = document.getElementById('stop').value;
 const profit_percentage = Math.abs((((target - entry)/entry) * 100) * leverage).toFixed(2);
 
+const target_2_toggle = document.getElementById('target_2');
+
 let message = null;
 let isLong = direction.toLowerCase() === "long" ? true : false;
 
@@ -37,6 +39,18 @@ function calculate_short_rrr(){
    return rrr.toFixed(2)
 }
 if (parseInt(message_template) === 5){
+
+   document.getElementById('entry').disabled = false;
+   document.getElementById('target').disabled = false;
+   document.getElementById('leverage').disabled = false;
+   document.getElementById('target_1').disabled = true;
+   document.getElementById('target_2').disabled = true;
+   document.getElementById('target_3').disabled = true;
+   document.getElementById('target_4').disabled = true;
+   document.getElementById('target_5').disabled = true;
+   document.getElementById('chart').disabled = true;
+   document.getElementById('stop').disabled = true;
+
    message = `Trade ID: ${trade_id}
 ${asset} ${direction}
 Target ${message_template} Hit${'💰'.repeat(message_template)}
@@ -44,7 +58,19 @@ All Targets Hit🔥
 Trade Finished 🏁
 Total Profit: +${profit_percentage}% (with ${leverage}x leverage)`
 }
-else if (message_template === 'start'){
+else if (message_template.toLowerCase() === 'start'){
+
+   document.getElementById('entry').disabled = false;
+   document.getElementById('target').disabled = true;
+   document.getElementById('leverage').disabled = false;
+   document.getElementById('target_1').disabled = false;
+   document.getElementById('target_2').disabled = false;
+   document.getElementById('target_3').disabled = false;
+   document.getElementById('target_4').disabled = false;
+   document.getElementById('target_5').disabled = false;
+   document.getElementById('chart').disabled = false;
+   document.getElementById('stop').disabled = false;
+
    message = `🚨Trade Signal🚨
 Trade ID: ${trade_id}
 Asset: ${asset}
@@ -63,19 +89,59 @@ Maximum Leverage: ${leverage}x
    
 Status: Waiting to Trigger`
 }
+
 else if (parseInt(message_template) === -2){
+
+   document.getElementById('entry').disabled = false;
+   document.getElementById('target').disabled = false;
+   document.getElementById('leverage').disabled = false;
+   document.getElementById('target_1').disabled = true;
+   document.getElementById('target_2').disabled = true;
+   document.getElementById('target_3').disabled = true;
+   document.getElementById('target_4').disabled = true;
+   document.getElementById('target_5').disabled = true;
+   document.getElementById('chart').disabled = true;
+   document.getElementById('stop').disabled = true;
+
    message = `Trade ID: ${trade_id}
 ${asset} ${direction}
 Trade Finished 🏁
 Total Profit: +${profit_percentage}% (with ${leverage}x leverage)`
 }
+
 else if ([1,2,3,4].includes(parseInt(message_template))){
+
+   document.getElementById('entry').disabled = false;
+   document.getElementById('target').disabled = false;
+   document.getElementById('leverage').disabled = false;
+   document.getElementById('target_1').disabled = true;
+   document.getElementById('target_2').disabled = true;
+   document.getElementById('target_3').disabled = true;
+   document.getElementById('target_4').disabled = true;
+   document.getElementById('target_5').disabled = true;
+   document.getElementById('chart').disabled = true;
+   document.getElementById('stop').disabled = true;
+
+   document.getElementById('target_2').disabled = true;
    message = `Trade ID: ${trade_id}
 ${asset} ${direction}
 Target ${message_template} Hit${'💰'.repeat(message_template)}
 Profit: +${profit_percentage}% (with ${leverage}x leverage)`
 }
+
 else if (parseInt(message_template) === 5){
+
+   document.getElementById('entry').disabled = false;
+   document.getElementById('target').disabled = false;
+   document.getElementById('leverage').disabled = false;
+   document.getElementById('target_1').disabled = true;
+   document.getElementById('target_2').disabled = true;
+   document.getElementById('target_3').disabled = true;
+   document.getElementById('target_4').disabled = true;
+   document.getElementById('target_5').disabled = true;
+   document.getElementById('chart').disabled = true;
+   document.getElementById('stop').disabled = true;
+
    message = `Trade ID: ${trade_id}
 ${asset} ${direction}
 Target ${message_template} Hit${'💰'.repeat(message_template)}
@@ -83,17 +149,61 @@ All Targets Hit 🔥
 Trade Finished 🏁
 Total Profit: +${profit_percentage}% (with ${leverage}x leverage)`
 }
+
 else {
 if (parseInt(message_template) === 0){
+
+   document.getElementById('entry').disabled = true;
+   document.getElementById('target').disabled = true;
+   document.getElementById('leverage').disabled = true;
+   document.getElementById('target_1').disabled = true;
+   document.getElementById('target_2').disabled = true;
+   document.getElementById('target_3').disabled = true;
+   document.getElementById('target_4').disabled = true;
+   document.getElementById('target_5').disabled = true;
+   document.getElementById('chart').disabled = true;
+   document.getElementById('stop').disabled = true;
+
    message = `Trade ID: ${trade_id}
 ${asset} ${direction}
 Entry Triggered 🚀`
 }
 else if (parseInt(message_template) === -1){
+
+   document.getElementById('entry').disabled = true;
+   document.getElementById('target').disabled = true;
+   document.getElementById('leverage').disabled = true;
+   document.getElementById('target_1').disabled = true;
+   document.getElementById('target_2').disabled = true;
+   document.getElementById('target_3').disabled = true;
+   document.getElementById('target_4').disabled = true;
+   document.getElementById('target_5').disabled = true;
+   document.getElementById('chart').disabled = true;
+   document.getElementById('stop').disabled = true;
+
    message = `Trade ID: ${trade_id}
 ${asset} ${direction}
 Stopped Out❌
 Trade Finished 🏁`
+}
+
+else if (message_template.toLowerCase() === 'never'){
+   document.getElementById('entry').disabled = true;
+   document.getElementById('target').disabled = true;
+   document.getElementById('leverage').disabled = true;
+   document.getElementById('target_1').disabled = true;
+   document.getElementById('target_2').disabled = true;
+   document.getElementById('target_3').disabled = true;
+   document.getElementById('target_4').disabled = true;
+   document.getElementById('target_5').disabled = true;
+   document.getElementById('chart').disabled = true;
+   document.getElementById('stop').disabled = true;
+
+   message = `Trade ID: ${trade_id}
+${asset} ${direction}
+Setup Invalidated - Never Triggered 💤
+Trade Finished 🏁`
+   
 }
 };
 
