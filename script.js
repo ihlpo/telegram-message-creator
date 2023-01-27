@@ -25,6 +25,19 @@ const target_2_toggle = document.getElementById('target_2');
 let message = null;
 let isLong = direction.toLowerCase() === "long" ? true : false;
 
+function moving_stop_loss(number){
+   console.log("hi")
+   if (number === '1'){
+      return `Stop Loss Moved To Entry`;
+   }
+   else if (number == '3'){
+      return `Stop Loss Moved To Target 1`;
+   }
+   else if (number == '4'){
+      return `Stop Loss Moved To Target 2`;
+   }
+}
+
 function calculate_long_rrr(){
    let targetPNL = (target_5 - entry) / entry;
    let stopPNL = (entry - stop) / entry;
@@ -126,7 +139,10 @@ else if ([1,2,3,4].includes(parseInt(message_template))){
    message = `Trade ID: ${trade_id}
 ${asset} ${direction}
 Target ${message_template} Hit${'💰'.repeat(message_template)}
-Profit: +${profit_percentage}% (with ${leverage}x leverage)`
+Profit: +${profit_percentage}% (with ${leverage}x leverage)
+
+${moving_stop_loss(message_template)}
+`
 }
 
 else if (parseInt(message_template) === 5){
