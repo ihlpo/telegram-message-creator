@@ -26,15 +26,8 @@ let message = null;
 let isLong = direction.toLowerCase() === "long" ? true : false;
 
 function moving_stop_loss(number){
-   console.log("hi")
    if (number === '1'){
       return `Stop Loss Moved To Entry`;
-   }
-   else if (number == '3'){
-      return `Stop Loss Moved To Target 1`;
-   }
-   else if (number == '4'){
-      return `Stop Loss Moved To Target 2`;
    }
 }
 
