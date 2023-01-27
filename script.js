@@ -132,10 +132,7 @@ else if ([1,2,3,4].includes(parseInt(message_template))){
    message = `Trade ID: ${trade_id}
 ${asset} ${direction}
 Target ${message_template} Hit${'💰'.repeat(message_template)}
-Profit: +${profit_percentage}% (with ${leverage}x leverage)
-
-${moving_stop_loss(message_template)}
-`
+Profit: +${profit_percentage}% (with ${leverage}x leverage)`
 }
 
 else if (parseInt(message_template) === 5){
