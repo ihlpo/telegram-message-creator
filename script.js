@@ -129,10 +129,20 @@ else if ([1,2,3,4].includes(parseInt(message_template))){
    document.getElementById('stop').disabled = true;
 
    document.getElementById('target_2').disabled = true;
+   if (message_template === '1'){
+      message = `Trade ID: ${trade_id}
+${asset} ${direction}
+Target ${message_template} Hit${'💰'.repeat(message_template)}
+Profit: +${profit_percentage}% (with ${leverage}x leverage)
+
+Stop Loss Moved To Entry`
+}
+   else {
    message = `Trade ID: ${trade_id}
 ${asset} ${direction}
 Target ${message_template} Hit${'💰'.repeat(message_template)}
 Profit: +${profit_percentage}% (with ${leverage}x leverage)`
+}
 }
 
 else if (parseInt(message_template) === 5){
