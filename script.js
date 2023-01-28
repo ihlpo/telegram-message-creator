@@ -112,7 +112,7 @@ else if (parseInt(message_template) === -2){
    message = `Trade ID: ${trade_id}
 ${asset} ${direction}
 Trade Finished 🏁
-Total Profit: +${profit_percentage}% (with ${leverage}x leverage)`
+Max Total Profit: +${profit_percentage}% (with ${leverage}x leverage)`
 }
 
 else if ([1,2,3,4].includes(parseInt(message_template))){
