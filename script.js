@@ -65,6 +65,17 @@ Target ${message_template} Hit${'💰'.repeat(message_template)}
 All Targets Hit🔥
 Trade Finished 🏁
 Total Profit: +${profit_percentage}% (with ${leverage}x leverage)`
+
+   message2 = `Trade ID: ${trade_id}
+${asset} ${direction}
+Target ${message_template} Hit${'💰'.repeat(message_template)}
+All Targets Hit 🔥
+Trade Finished 🏁
+Total Profit: +${profit_percentage}% (with ${leverage}x leverage)
+———————————
+Maximize your profits with exclusive early access to our signals - upgrade to VIP now.
+
+t.me/Signali_VIP_Bot`
 }
 else if (message_template.toLowerCase() === 'start'){
 
@@ -186,37 +197,26 @@ t.me/Signali_VIP_Bot`
 }
 }
 
-else if (parseInt(message_template) === 5){
+// else if (parseInt(message_template) === 5){
 
-   document.getElementById('entry').disabled = false;
-   document.getElementById('target').disabled = false;
-   document.getElementById('leverage').disabled = false;
-   document.getElementById('target_1').disabled = true;
-   document.getElementById('target_2').disabled = true;
-   document.getElementById('target_3').disabled = true;
-   document.getElementById('target_4').disabled = true;
-   document.getElementById('target_5').disabled = true;
-   document.getElementById('chart').disabled = true;
-   document.getElementById('stop').disabled = true;
+//    document.getElementById('entry').disabled = false;
+//    document.getElementById('target').disabled = false;
+//    document.getElementById('leverage').disabled = false;
+//    document.getElementById('target_1').disabled = true;
+//    document.getElementById('target_2').disabled = true;
+//    document.getElementById('target_3').disabled = true;
+//    document.getElementById('target_4').disabled = true;
+//    document.getElementById('target_5').disabled = true;
+//    document.getElementById('chart').disabled = true;
+//    document.getElementById('stop').disabled = true;
 
-   message = `Trade ID: ${trade_id}
-${asset} ${direction}
-Target ${message_template} Hit${'💰'.repeat(message_template)}
-All Targets Hit 🔥
-Trade Finished 🏁
-Total Profit: +${profit_percentage}% (with ${leverage}x leverage)`
-
-   message2 = `Trade ID: ${trade_id}
-${asset} ${direction}
-Target ${message_template} Hit${'💰'.repeat(message_template)}
-All Targets Hit 🔥
-Trade Finished 🏁
-Total Profit: +${profit_percentage}% (with ${leverage}x leverage)
-———————————
-Maximize your profits with exclusive early access to our signals - upgrade to VIP now.
-
-t.me/Signali_VIP_Bot`
-}
+//    message = `Trade ID: ${trade_id}
+// ${asset} ${direction}
+// Target ${message_template} Hit${'💰'.repeat(message_template)}
+// All Targets Hit 🔥
+// Trade Finished 🏁
+// Total Profit: +${profit_percentage}% (with ${leverage}x leverage)`
+// }
 
 else {
 if (parseInt(message_template) === 0){
