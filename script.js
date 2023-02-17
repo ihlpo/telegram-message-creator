@@ -23,6 +23,8 @@ const profit_percentage = Math.abs((((target - entry)/entry) * 100) * leverage).
 const target_2_toggle = document.getElementById('target_2');
 
 let message = null;
+let message2 = null;
+let message3 = null;
 let isLong = direction.toLowerCase() === "long" ? true : false;
 
 function moving_stop_loss(number){
@@ -113,6 +115,14 @@ else if (parseInt(message_template) === -2){
 ${asset} ${direction}
 Trade Finished 🏁
 Max Total Profit: +${profit_percentage}% (with ${leverage}x leverage)`
+   message2 = `Trade ID: ${trade_id}
+${asset} ${direction}
+Trade Finished 🏁
+Max Total Profit: +${profit_percentage}% (with ${leverage}x leverage)
+———————————
+Maximize your profits with exclusive early access to our signals - upgrade to VIP now.
+
+t.me/Signali_VIP_Bot`
 }
 
 else if ([1,2,3,4].includes(parseInt(message_template))){
@@ -128,18 +138,51 @@ else if ([1,2,3,4].includes(parseInt(message_template))){
    document.getElementById('chart').disabled = true;
    document.getElementById('stop').disabled = true;
 
-   document.getElementById('target_2').disabled = true;
    if (message_template === '1'){
       message = `Trade ID: ${trade_id}
 ${asset} ${direction}
 Target ${message_template} Hit${'💰'.repeat(message_template)}
 Profit: +${profit_percentage}% (with ${leverage}x leverage)`
+
+      message2 = `Trade ID: ${trade_id}
+${asset} ${direction}
+Target ${message_template} Hit${'💰'.repeat(message_template)}
+Profit: +${profit_percentage}% (with ${leverage}x leverage)
+
+t.me/Signali_VIP_Bot`
+
+      message3 = `🚨Trade Signal🚨
+Trade ID: ${trade_id}
+Asset: ${asset}
+Chart: ${chart}
+Direction: ${direction} ${isLong ? "⬆️" : "⬇️"}
+🚀 Entry: ~${entry}
+❌ Stop: ~${stop}
+💰Target 1: ~${target_1}
+💰Target 2: ~${target_2}
+💰Target 3: ~${target_3}
+💰Target 4: ~${target_4}
+💰Target 5: ~${target_5}
+   
+Total Risk Reward: ${isLong ? calculate_long_rrr() : calculate_short_rrr()}
+Maximum Leverage: ${leverage}x
+   
+Status:
+Entry Triggered 🚀
+Target 1 Hit💰`
 }
    else {
    message = `Trade ID: ${trade_id}
 ${asset} ${direction}
 Target ${message_template} Hit${'💰'.repeat(message_template)}
 Profit: +${profit_percentage}% (with ${leverage}x leverage)`
+
+   message2 = `Trade ID: ${trade_id}
+${asset} ${direction}
+Target ${message_template} Hit${'💰'.repeat(message_template)}
+Profit: +${profit_percentage}% (with ${leverage}x leverage)
+
+t.me/Signali_VIP_Bot`
 }
 }
 
@@ -162,6 +205,17 @@ Target ${message_template} Hit${'💰'.repeat(message_template)}
 All Targets Hit 🔥
 Trade Finished 🏁
 Total Profit: +${profit_percentage}% (with ${leverage}x leverage)`
+
+   message2 = `Trade ID: ${trade_id}
+${asset} ${direction}
+Target ${message_template} Hit${'💰'.repeat(message_template)}
+All Targets Hit 🔥
+Trade Finished 🏁
+Total Profit: +${profit_percentage}% (with ${leverage}x leverage)
+———————————
+Maximize your profits with exclusive early access to our signals - upgrade to VIP now.
+
+t.me/Signali_VIP_Bot`
 }
 
 else {
@@ -181,6 +235,10 @@ if (parseInt(message_template) === 0){
    message = `Trade ID: ${trade_id}
 ${asset} ${direction}
 Entry Triggered 🚀`
+
+message2 = `${asset} ${chart} ${direction} entry triggered!
+
+t.me/Signali_VIP_Bot`
 }
 else if (parseInt(message_template) === -1){
 
@@ -217,23 +275,26 @@ else if (message_template.toLowerCase() === 'never'){
 ${asset} ${direction}
 Setup Invalidated - Never Triggered 💤
 Trade Finished 🏁`
-   
 }
 };
 
 message_output.innerHTML = `${message}`;
 
 let encoded_message = encodeURIComponent(message);
+let encoded_message2 = encodeURIComponent(message2);
+let encoded_message3 = encodeURIComponent(message3);
 
-function buildJSON(message_id, rendered_message){
+function buildJSON(message_id, rendered_message, rendered_message2, rendered_message3){
    let output = {
        'message_id': parseInt(message_id),
-       'message': rendered_message
+       'message': rendered_message,
+       'message2': rendered_message2,
+       'message3': rendered_message3
    }
    return JSON.stringify(output);
 }
 
-json_output.innerHTML = `${buildJSON(message_id, encoded_message)}`
+json_output.innerHTML = `${buildJSON(message_id, encoded_message, encoded_message2, encoded_message3)}`
 
 }
 
