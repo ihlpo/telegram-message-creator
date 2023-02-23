@@ -25,6 +25,7 @@ const target_2_toggle = document.getElementById('target_2');
 let message = null;
 let message2 = null;
 let message3 = null;
+let message_update = null;
 let isLong = direction.toLowerCase() === "long" ? true : false;
 
 function moving_stop_loss(number){
@@ -76,6 +77,33 @@ Total Profit: +${profit_percentage}% (with ${leverage}x leverage)
 Maximize your profits with exclusive early access to our signals - upgrade to VIP now.
 
 t.me/Signali_VIP_Bot`
+
+   message_update = `🚨Trade Signal🚨
+Trade ID: ${trade_id}
+Asset: ${asset}
+Chart: ${chart}
+Direction: ${direction} ${isLong ? "⬆️" : "⬇️"}
+🚀 Entry: ~${entry}
+❌ Stop: ~${stop}
+💰Target 1: ~${target_1}
+💰Target 2: ~${target_2}
+💰Target 3: ~${target_3}
+💰Target 4: ~${target_4}
+💰Target 5: ~${target_5}
+      
+Total Risk Reward: ${isLong ? calculate_long_rrr() : calculate_short_rrr()}
+Maximum Leverage: ${leverage}x
+      
+Status:
+Entry Triggered 🚀
+Target 1 Hit💰
+Target 2 Hit💰💰
+Target 3 Hit💰💰💰
+Target 4 Hit💰💰💰💰
+Target 5 Hit💰💰💰💰
+All Targets Hit 🔥
+Trade Finished 🏁`
+      
 }
 else if (message_template.toLowerCase() === 'start'){
 
@@ -181,19 +209,108 @@ Maximum Leverage: ${leverage}x
 Status:
 Entry Triggered 🚀
 Target 1 Hit💰`
+
+      message_update = `🚨Trade Signal🚨
+Trade ID: ${trade_id}
+Asset: ${asset}
+Chart: ${chart}
+Direction: ${direction} ${isLong ? "⬆️" : "⬇️"}
+🚀 Entry: ~${entry}
+❌ Stop: ~${stop}
+💰Target 1: ~${target_1}
+💰Target 2: ~${target_2}
+💰Target 3: ~${target_3}
+💰Target 4: ~${target_4}
+💰Target 5: ~${target_5}
+         
+Total Risk Reward: ${isLong ? calculate_long_rrr() : calculate_short_rrr()}
+Maximum Leverage: ${leverage}x
+         
+Status:
+Entry Triggered 🚀
+Target 1 Hit💰`
 }
    else {
-   message = `Trade ID: ${trade_id}
+      message = `Trade ID: ${trade_id}
 ${asset} ${direction}
 Target ${message_template} Hit${'💰'.repeat(message_template)}
 Profit: +${profit_percentage}% (with ${leverage}x leverage)`
 
-   message2 = `Trade ID: ${trade_id}
+      message2 = `Trade ID: ${trade_id}
 ${asset} ${direction}
 Target ${message_template} Hit${'💰'.repeat(message_template)}
 Profit: +${profit_percentage}% (with ${leverage}x leverage)
 
 t.me/Signali_VIP_Bot`
+      if (message_template === '2'){
+         message_update = `🚨Trade Signal🚨
+Trade ID: ${trade_id}
+Asset: ${asset}
+Chart: ${chart}
+Direction: ${direction} ${isLong ? "⬆️" : "⬇️"}
+🚀 Entry: ~${entry}
+❌ Stop: ~${stop}
+💰Target 1: ~${target_1}
+💰Target 2: ~${target_2}
+💰Target 3: ~${target_3}
+💰Target 4: ~${target_4}
+💰Target 5: ~${target_5}
+         
+Total Risk Reward: ${isLong ? calculate_long_rrr() : calculate_short_rrr()}
+Maximum Leverage: ${leverage}x
+         
+Status:
+Entry Triggered 🚀
+Target 1 Hit💰
+Target 2 Hit💰💰`
+}
+      else if(message_template === '3'){
+         message_update = `🚨Trade Signal🚨
+Trade ID: ${trade_id}
+Asset: ${asset}
+Chart: ${chart}
+Direction: ${direction} ${isLong ? "⬆️" : "⬇️"}
+🚀 Entry: ~${entry}
+❌ Stop: ~${stop}
+💰Target 1: ~${target_1}
+💰Target 2: ~${target_2}
+💰Target 3: ~${target_3}
+💰Target 4: ~${target_4}
+💰Target 5: ~${target_5}
+      
+Total Risk Reward: ${isLong ? calculate_long_rrr() : calculate_short_rrr()}
+Maximum Leverage: ${leverage}x
+      
+Status:
+Entry Triggered 🚀
+Target 1 Hit💰
+Target 2 Hit💰💰
+Target 3 Hit💰💰💰`
+}
+      else if(message_template === '4'){
+         message_update = `🚨Trade Signal🚨
+Trade ID: ${trade_id}
+Asset: ${asset}
+Chart: ${chart}
+Direction: ${direction} ${isLong ? "⬆️" : "⬇️"}
+🚀 Entry: ~${entry}
+❌ Stop: ~${stop}
+💰Target 1: ~${target_1}
+💰Target 2: ~${target_2}
+💰Target 3: ~${target_3}
+💰Target 4: ~${target_4}
+💰Target 5: ~${target_5}
+      
+Total Risk Reward: ${isLong ? calculate_long_rrr() : calculate_short_rrr()}
+Maximum Leverage: ${leverage}x
+      
+Status:
+Entry Triggered 🚀
+Target 1 Hit💰
+Target 2 Hit💰💰
+Target 3 Hit💰💰💰
+Target 4 Hit💰💰💰💰`
+} 
 }
 }
 
@@ -283,18 +400,20 @@ message_output.innerHTML = `${message}`;
 let encoded_message = encodeURIComponent(message);
 let encoded_message2 = encodeURIComponent(message2);
 let encoded_message3 = encodeURIComponent(message3);
+let encoded_message_update = encodeURIComponent(message_update)
 
-function buildJSON(message_id, rendered_message, rendered_message2, rendered_message3){
+function buildJSON(message_id, rendered_message, rendered_message2, rendered_message3, rendered_message_updated){
    let output = {
        'message_id': parseInt(message_id),
        'message': rendered_message,
        'message2': rendered_message2,
-       'message3': rendered_message3
+       'message3': rendered_message3,
+       'message_update': rendered_message_updated
    }
    return JSON.stringify(output);
 }
 
-json_output.innerHTML = `${buildJSON(message_id, encoded_message, encoded_message2, encoded_message3)}`
+json_output.innerHTML = `${buildJSON(message_id, encoded_message, encoded_message2, encoded_message3, encoded_message_update)}`
 
 }
 
