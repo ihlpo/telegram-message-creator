@@ -100,7 +100,7 @@ Target 1 Hit💰
 Target 2 Hit💰💰
 Target 3 Hit💰💰💰
 Target 4 Hit💰💰💰💰
-Target 5 Hit💰💰💰💰
+Target 5 Hit💰💰💰💰💰
 All Targets Hit 🔥
 Trade Finished 🏁`
       
@@ -353,7 +353,7 @@ if (parseInt(message_template) === 0){
 ${asset} ${direction}
 Entry Triggered 🚀`
 
-message2 = `${asset} ${chart} ${direction} entry triggered!
+message2 = `${asset} ${chart} ${direction} Entry Triggered!
 
 t.me/Signali_VIP_Bot`
 }
