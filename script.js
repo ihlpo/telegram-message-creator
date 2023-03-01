@@ -336,6 +336,26 @@ Entry Triggered 🚀`
 message2 = `${asset} ${chart} ${direction} Entry Triggered!
 
 t.me/Signali_VIP_Bot`
+
+   message_update = `🚨Trade Signal🚨
+Trade ID: ${trade_id}
+Asset: ${asset}
+Chart: ${chart}
+Direction: ${direction} ${isLong ? "⬆️" : "⬇️"}
+🚀 Entry: ~${entry}
+❌ Stop: ~${stop}
+💰Target 1: ~${target_1}
+💰Target 2: ~${target_2}
+💰Target 3: ~${target_3}
+💰Target 4: ~${target_4}
+💰Target 5: ~${target_5}
+      
+Total Risk Reward: ${isLong ? calculate_long_rrr() : calculate_short_rrr()}
+Maximum Leverage: ${leverage}x
+      
+Status:
+Entry Triggered 🚀`
+      
 }
 else if (parseInt(message_template) === -1){
 
