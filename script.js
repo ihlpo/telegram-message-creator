@@ -75,7 +75,7 @@ All Targets Hit 🔥
 Trade Finished 🏁
 Total Profit: +${profit_percentage}% (with ${leverage}x leverage)
 ———————————
-Get exclusive early access to our signals - upgrade to VIP now.
+Get exclusive early access to our signals — upgrade to VIP now.
 
 t.me/Signali_VIP_Bot`
 
@@ -160,7 +160,7 @@ ${asset} ${direction} ${isLong ? "⬆️" : "⬇️"}
 Trade Finished 🏁
 Max Total Profit: +${profit_percentage}% (with ${leverage}x leverage)
 ———————————
-Get exclusive early access to our signals - upgrade to VIP now.
+Get exclusive early access to our signals — upgrade to VIP now.
 
 t.me/Signali_VIP_Bot`
 }
