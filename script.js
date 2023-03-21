@@ -2,7 +2,7 @@ isLong = true;
 
 function build_json(){
 const message_output = document.getElementById('message_output');
-const json_output = document.getElementById('json_output');
+const json_text_area = document.getElementById('json_text_area');
 const message_id = document.getElementById('message_id').value;
 const message_template = document.getElementById('message_template').value.toLowerCase();
 const trade_id = document.getElementById('trade_id').value;
@@ -20,6 +20,7 @@ const target_5 = document.getElementById('target_5').value;
 const chart = document.getElementById('chart').value;
 const stop = document.getElementById('stop').value;
 const profit_percentage = Math.abs((((target - entry)/entry) * 100) * leverage).toFixed(2);
+const copy_button = document.getElementById('copy-btn');
 
 const target_2_toggle = document.getElementById('target_2');
 
@@ -413,7 +414,13 @@ function buildJSON(message_id, rendered_message, rendered_message2, rendered_mes
    return JSON.stringify(output);
 }
 
-json_output.innerHTML = `${buildJSON(message_id, encoded_message, encoded_message2, encoded_message3, encoded_message_update)}`
+json_text_area.innerHTML = `${buildJSON(message_id, encoded_message, encoded_message2, encoded_message3, encoded_message_update)}`
+
+copy_button.addEventListener('click', function() {
+   let textarea = document.getElementById("json_text_area");
+   document.getElementById("json_text_area").select();
+   document.execCommand('copy');
+ });
 
 }
 
