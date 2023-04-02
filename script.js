@@ -76,7 +76,7 @@ All Targets Hit 🔥
 Trade Finished 🏁
 Total Profit: +${profit_percentage}% (with ${leverage}x leverage)
 ———————————
-Get exclusive early access to our signals — upgrade to VIP now.
+Get exclusive early access to high win rate signals. Link below.
 
 t.me/Signali_VIP_Bot`
 
@@ -161,7 +161,7 @@ ${asset} ${direction} ${isLong ? "⬆️" : "⬇️"}
 Trade Finished 🏁
 Max Total Profit: +${profit_percentage}% (with ${leverage}x leverage)
 ———————————
-Get exclusive early access to our signals — upgrade to VIP now.
+Get Exclusive Early Access to High Win Rate Signals.
 
 t.me/Signali_VIP_Bot`
 }
@@ -190,7 +190,7 @@ ${asset} ${direction} ${isLong ? "⬆️" : "⬇️"}
 Target ${message_template} Hit${'💰'.repeat(message_template)}
 Profit: +${profit_percentage}% (with ${leverage}x leverage)
 
-t.me/Signali_VIP_Bot`
+Get Exclusive Early Access to High Win Rate Signals - t.me/Signali_VIP_Bot`
 
       message3 = `🚨Trade Signal🚨
 Trade ID: ${trade_id}
@@ -243,7 +243,7 @@ ${asset} ${direction} ${isLong ? "⬆️" : "⬇️"}
 Target ${message_template} Hit${'💰'.repeat(message_template)}
 Profit: +${profit_percentage}% (with ${leverage}x leverage)
 
-t.me/Signali_VIP_Bot`
+Get Exclusive Early Access to High Win Rate Signals - t.me/Signali_VIP_Bot`
       if (message_template === '2'){
          message_update = `🚨Trade Signal🚨
 Trade ID: ${trade_id}
@@ -336,7 +336,7 @@ Entry Triggered 🚀`
 
 message2 = `${asset} ${chart} ${direction} Entry Triggered!
 
-t.me/Signali_VIP_Bot`
+Get Exclusive Early Access to High Win Rate Signals — t.me/Signali_VIP_Bot`
 
    message_update = `🚨Trade Signal🚨
 Trade ID: ${trade_id}
