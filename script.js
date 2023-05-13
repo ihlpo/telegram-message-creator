@@ -63,14 +63,14 @@ if (parseInt(message_template) === 5){
    document.getElementById('stop').disabled = true;
 
    message = `Trade ID: ${trade_id}
-${asset} ${direction} ${isLong ? "⬆️" : "⬇️"}
+${asset} ${chart} ${direction} ${isLong ? "⬆️" : "⬇️"}
 Target ${message_template} Hit${'💰'.repeat(message_template)}
 All Targets Hit🔥
 Trade Finished 🏁
 Total Profit: +${profit_percentage}% (with ${leverage}x leverage)`
 
    message2 = `Trade ID: ${trade_id}
-${asset} ${direction} ${isLong ? "⬆️" : "⬇️"}
+${asset} ${chart} ${direction} ${isLong ? "⬆️" : "⬇️"}
 Target ${message_template} Hit${'💰'.repeat(message_template)}
 All Targets Hit 🔥
 Trade Finished 🏁
@@ -151,11 +151,11 @@ else if (parseInt(message_template) === -2){
    document.getElementById('stop').disabled = false;
 
    message = `Trade ID: ${trade_id}
-${asset} ${direction} ${isLong ? "⬆️" : "⬇️"}
+${asset} ${chart} ${direction} ${isLong ? "⬆️" : "⬇️"}
 Trade Finished 🏁
 Max Total Profit: +${profit_percentage}% (with ${leverage}x leverage)`
    message2 = `Trade ID: ${trade_id}
-${asset} ${direction} ${isLong ? "⬆️" : "⬇️"}
+${asset} ${chart} ${direction} ${isLong ? "⬆️" : "⬇️"}
 Trade Finished 🏁
 Max Total Profit: +${profit_percentage}% (with ${leverage}x leverage)
 ———————————
@@ -177,12 +177,12 @@ else if ([1,2,3,4].includes(parseInt(message_template))){
 
    if (message_template === '1'){
       message = `Trade ID: ${trade_id}
-${asset} ${direction} ${isLong ? "⬆️" : "⬇️"}
+${asset} ${chart} ${direction} ${isLong ? "⬆️" : "⬇️"}
 Target ${message_template} Hit${'💰'.repeat(message_template)}
 Profit: +${profit_percentage}% (with ${leverage}x leverage)`
 
       message2 = `Trade ID: ${trade_id}
-${asset} ${direction} ${isLong ? "⬆️" : "⬇️"}
+${asset} ${chart} ${direction} ${isLong ? "⬆️" : "⬇️"}
 Target ${message_template} Hit${'💰'.repeat(message_template)}
 Profit: +${profit_percentage}% (with ${leverage}x leverage)
 
@@ -226,12 +226,12 @@ Target 1 Hit💰`
 }
    else {
       message = `Trade ID: ${trade_id}
-${asset} ${direction} ${isLong ? "⬆️" : "⬇️"}
+${asset} ${chart} ${direction} ${isLong ? "⬆️" : "⬇️"}
 Target ${message_template} Hit${'💰'.repeat(message_template)}
 Profit: +${profit_percentage}% (with ${leverage}x leverage)`
 
       message2 = `Trade ID: ${trade_id}
-${asset} ${direction} ${isLong ? "⬆️" : "⬇️"}
+${asset} ${chart} ${direction} ${isLong ? "⬆️" : "⬇️"}
 Target ${message_template} Hit${'💰'.repeat(message_template)}
 Profit: +${profit_percentage}% (with ${leverage}x leverage)
 
@@ -324,7 +324,7 @@ if (parseInt(message_template) === 0){
    document.getElementById('stop').disabled = true;
 
    message = `Trade ID: ${trade_id}
-${asset} ${direction} ${isLong ? "⬆️" : "⬇️"}
+${asset} ${chart} ${direction} ${isLong ? "⬆️" : "⬇️"}
 Entry Triggered 🚀`
 
 message2 = `${asset} ${chart} ${direction} Entry Triggered!
@@ -365,7 +365,7 @@ else if (parseInt(message_template) === -1){
    document.getElementById('stop').disabled = true;
 
    message = `Trade ID: ${trade_id}
-${asset} ${direction} ${isLong ? "⬆️" : "⬇️"}
+${asset} ${chart} ${direction} ${isLong ? "⬆️" : "⬇️"}
 Stopped Out❌
 Trade Finished 🏁`
 }
@@ -383,7 +383,7 @@ else if (message_template.toLowerCase() === 'never'){
    document.getElementById('stop').disabled = true;
 
    message = `Trade ID: ${trade_id}
-${asset} ${direction} ${isLong ? "⬆️" : "⬇️"}
+${asset} ${chart} ${direction} ${isLong ? "⬆️" : "⬇️"}
 Setup Invalidated - Never Triggered 💤
 Trade Finished 🏁`
 }
